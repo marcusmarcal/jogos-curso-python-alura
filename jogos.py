@@ -1,6 +1,6 @@
 import adivinhacao
 import forca
-1
+
 print("************************************")
 print("******* Escolha seu jogo! **********")
 print("************************************")
