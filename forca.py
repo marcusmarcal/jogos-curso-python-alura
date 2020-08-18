@@ -16,7 +16,6 @@ def jogar():
 
     arquivo.close()
 
-
     palavra_secreta = escolhida.upper()
     letras_acertadas = ["_" for letra in palavra_secreta]
 
@@ -42,8 +41,9 @@ def jogar():
             print("Erros: {}".format(erros))
             if(erros == 6):
                 enforcou = True
-                print("ENFORCOU!!")
-                novo = input("Jogar de novo? [S] ou [N]").upper()
+                print("*********** ENFORCOU!! *************")
+                print("***** A PALAVRA ERA >>> {} <<< *****".format(palavra_secreta))
+                novo = input("Jogar de novo? [S] ou [N] ").upper()
                 if novo == "S":
                     jogar()
                 else:
