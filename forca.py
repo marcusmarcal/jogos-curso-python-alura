@@ -48,6 +48,7 @@ def jogar():
                 if novo == "S":
                     jogar()
                 else:
+                    print("************* ATÉ A PRÓXIMA! **************")
                     break
         print("Palavra: ", letras_acertadas)
         print("Jogando...")
