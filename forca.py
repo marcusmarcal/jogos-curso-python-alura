@@ -38,7 +38,7 @@ def jogar():
         if "_" not in letras_acertadas:
             acertou = True
             print("**************************************")
-            print("PARABÉNS, A PALAVRA ERA {}".format(palavra_secreta))
+            print("PARABÉNS, A PALAVRA ERA >>> {} <<<".format(palavra_secreta))
             print("**************************************")
 
 if(__name__ == "__main__"):
