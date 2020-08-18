@@ -51,7 +51,7 @@ def jogar():
                     print("************* ATÉ A PRÓXIMA! **************")
                     break
         print("Palavra: ", letras_acertadas)
-        print("Jogando...")
+        # print("Jogando...")
 
 
         if "_" not in letras_acertadas:
