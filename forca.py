@@ -11,8 +11,8 @@ def jogar():
         linha = linha.strip()
         palavras.append(linha)
 
-    #print(palavras)
-    escolhida = palavras[random.randrange(0, len(palavras))]
+    tamanho = len(palavras)
+    escolhida = palavras[random.randrange(0, tamanho)]
 
     arquivo.close()
 
@@ -41,8 +41,9 @@ def jogar():
             print("Erros: {}".format(erros))
             if(erros == 6):
                 enforcou = True
-                print("*********** ENFORCOU!! *************")
+                print("****************** ENFORCOU!! ******************")
                 print("***** A PALAVRA ERA >>> {} <<< *****".format(palavra_secreta))
+                print("************************************************\n")
                 novo = input("Jogar de novo? [S] ou [N] ").upper()
                 if novo == "S":
                     jogar()
@@ -54,9 +55,9 @@ def jogar():
 
         if "_" not in letras_acertadas:
             acertou = True
-            print("**************************************")
-            print("PARABÉNS, A PALAVRA ERA >>> {} <<<".format(palavra_secreta))
-            print("**************************************")
+            print("******************* PARABÉNS *******************")
+            print("A PALAVRA ERA >>> {} <<<".format(palavra_secreta))
+            print("************************************************")
             novo = input("Jogar de novo? [S] ou [N] ").upper()
             if novo == "S":
                 jogar()
