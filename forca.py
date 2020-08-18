@@ -1,11 +1,24 @@
+import random
+
 def jogar():
     print("*******************************************")
     print("** Bem-vindo ao jogo de Forca do Dionei! **")
     print("*******************************************")
 
-    palavra_secreta = "sabugo".upper()
-    tamanho = len(palavra_secreta)
-    letras_acertadas = ["_", "_", "_", "_", "_", "_"]
+    arquivo = open("palavras.txt", "r")
+    palavras = []
+    for linha in arquivo:
+        linha = linha.strip()
+        palavras.append(linha)
+
+    #print(palavras)
+    escolhida = palavras[random.randrange(0, len(palavras))]
+
+    arquivo.close()
+
+
+    palavra_secreta = escolhida.upper()
+    letras_acertadas = ["_" for letra in palavra_secreta]
 
     enforcou = False
     acertou = False
@@ -22,7 +35,7 @@ def jogar():
             for letra in palavra_secreta:
                 if(chute == letra):
                     letras_acertadas[index] = letra
-                    print("Encontrou a letra {} na posição {}".format(chute, index))
+                    #print("Encontrou a letra {} na posição {}".format(chute, index))
                 index += 1
         else:
             erros += 1
@@ -30,7 +43,11 @@ def jogar():
             if(erros == 6):
                 enforcou = True
                 print("ENFORCOU!!")
-                break
+                novo = input("Jogar de novo? [S] ou [N]").upper()
+                if novo == "S":
+                    jogar()
+                else:
+                    break
         print("Palavra: ", letras_acertadas)
         print("Jogando...")
 
@@ -40,6 +57,12 @@ def jogar():
             print("**************************************")
             print("PARABÉNS, A PALAVRA ERA >>> {} <<<".format(palavra_secreta))
             print("**************************************")
+            novo = input("Jogar de novo? [S] ou [N] ").upper()
+            if novo == "S":
+                jogar()
+            else:
+                print("************* ATÉ A PRÓXIMA! **************")
+                break
 
 if(__name__ == "__main__"):
     jogar()
