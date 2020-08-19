@@ -37,7 +37,7 @@ def jogar():
 
 def mensagem_inicio():
     print("*******************************************")
-    print("** Bem-vindo ao jogo de Forca do Dionei! **")
+    print("** Bem-vindo ao jogo de Forca do Marcus! **")
     print("*******************************************")
 
 def carrega_palavra():
