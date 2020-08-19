@@ -1,3 +1,6 @@
+## Testando desenvolvimento Python orientado pelo curso da Alura!
+## Marcus Marçal - marcus.marcal@gmail.com
+
 import random
 #import os #se necessário para função cla, lipar tela...
 
