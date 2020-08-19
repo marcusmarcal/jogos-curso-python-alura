@@ -14,27 +14,28 @@ def jogar():
 
     enforcou = False
     acertou = False
-    erros = 10
+    vidas = 7
 
     while (not acertou and not enforcou):
         chute = fazer_chute()
         if (chute in palavra_secreta):
             marca_letra_acertada(chute, letras_acertadas, palavra_secreta)
         else:
-            erros -= 1
-            marca_letra_errada(chute, letras_erradas, erros)
-            
-            if (erros == 0):
+            vidas -= 1
+            marca_letra_errada(chute, letras_erradas, vidas)
+            desenha_forca(vidas)
+
+            if (vidas == 0):
                 enforcou = True
-                imprime_mensagem_enforcou(palavra_secreta)
-                escolhe_jogar_de_novo()
+                imprime_mensagem_perdedor(palavra_secreta)
+                escolher_jogar_de_novo()
                 
-        imprime_mensagem_jogando(letras_acertadas, letras_erradas, erros)
+        imprime_mensagem_jogando(letras_acertadas, letras_erradas, vidas)
 
         if "_" not in letras_acertadas:
             acertou = True
-            imprime_mensagem_acertou(palavra_secreta)
-            escolhe_jogar_de_novo()
+            imprime_mensagem_vencedor(palavra_secreta)
+            escolher_jogar_de_novo()
 
 def mensagem_inicio():
     print("*******************************************")
@@ -64,26 +65,58 @@ def marca_letra_acertada(chute, letras_acertadas, palavra_secreta):
     for letra in palavra_secreta:
         if (chute == letra):
             letras_acertadas[index] = letra
-            print("Encontrou a letra {} na posição {}".format(chute, index))
+            # print("Encontrou a letra {} na posição {}".format(chute, index))
         index += 1
 
 def imprime_previa_palavra_secreta(lista):
     print("Palavra SECRETA: ", lista)
 
 def imprime_mensagem_jogando(letras_acertadas, letras_erradas, erros):
-    print("Letras erradas: {}".format(letras_erradas))
-    print("Erros disponíveis: {}".format(erros))
+    if letras_erradas:
+        print("Letras erradas: {}".format(letras_erradas))
+    # print("Erros disponíveis: {}".format(erros))
     print("PALAVRA SECRETA: ", letras_acertadas)
 
 def marca_letra_errada(chute, letras_erradas, erros):
     letras_erradas.append(chute)
 
-def imprime_mensagem_enforcou(palavra_secreta):
+def imprime_mensagem_perdedor(palavra_secreta):
     print("****************** ENFORCOU!! ******************")
     print("***** A PALAVRA ERA >>> {} <<< *****".format(palavra_secreta))
     print("************************************************\n")
+    print("    _______________         ")
+    print("   /               \       ")
+    print("  /                 \      ")
+    print("//                   \/\  ")
+    print("\|   XXXX     XXXX   | /   ")
+    print(" |   XXXX     XXXX   |/     ")
+    print(" |   XXX       XXX   |      ")
+    print(" |                   |      ")
+    print(" \__      XXX      __/     ")
+    print("   |\     XXX     /|       ")
+    print("   | |           | |        ")
+    print("   | I I I I I I I |        ")
+    print("   |  I I I I I I  |        ")
+    print("   \_             _/       ")
+    print("     \_         _/         ")
+    print("       \_______/           ")
 
-def escolhe_jogar_de_novo():
+def imprime_mensagem_vencedor(palavra_secreta):
+    print("******************* PARABÉNS *******************")
+    print("A PALAVRA ERA >>> {} <<<".format(palavra_secreta))
+    print("************************************************")
+    print("       ___________      ")
+    print("      '._==_==_=_.'     ")
+    print("      .-\\:      /-.    ")
+    print("     | (|:.     |) |    ")
+    print("      '-|:.     |-'     ")
+    print("        \\::.    /      ")
+    print("         '::. .'        ")
+    print("           ) (          ")
+    print("         _.' '._        ")
+    print("        '-------'       ")
+
+def escolher_jogar_de_novo():
     novo = input("Jogar de novo? [S] ou [N] ").upper()
     if novo == "S":
         jogar()
@@ -91,10 +124,55 @@ def escolhe_jogar_de_novo():
         print("************* ATÉ A PRÓXIMA! **************")
     exit()
 
-def imprime_mensagem_acertou(palavra_secreta):
-    print("******************* PARABÉNS *******************")
-    print("A PALAVRA ERA >>> {} <<<".format(palavra_secreta))
-    print("************************************************")
+def desenha_forca(vidas):
+    print("  _______     ")
+    print(" |/      |    ")
+
+    if(vidas == 6):
+        print(" |      (_)   ")
+        print(" |            ")
+        print(" |            ")
+        print(" |            ")
+
+    if(vidas == 5):
+        print(" |      (_)   ")
+        print(" |      \     ")
+        print(" |            ")
+        print(" |            ")
+
+    if(vidas == 4):
+        print(" |      (_)   ")
+        print(" |      \|    ")
+        print(" |            ")
+        print(" |            ")
+
+    if(vidas == 3):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |            ")
+        print(" |            ")
+
+    if(vidas == 2):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |            ")
+
+    if(vidas == 1):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      /     ")
+
+    if (vidas == 0):
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      / \   ")
+
+    print(" |            ")
+    print("_|___         ")
+    print()
 
 if (__name__ == "__main__"):
     jogar()
