@@ -1,6 +1,6 @@
 ## Testando desenvolvimento Python orientado pelo curso da Alura!
 ## Marcus Marçal - marcus.marcal@gmail.com
-## Versão 0.1.0
+## >>> Dev <<< versão 0.1.1
 
 import random
 #import os #se necessário para função cla, lipar tela...
@@ -50,7 +50,6 @@ def carrega_palavra():
     tamanho = len(palavras)
     escolhida = palavras[random.randrange(0, tamanho)].upper()
     arquivo.close()
-    #palavra_secreta = unidecode(escolhida.upper())
     return escolhida
 
 def carrega_letras_acertadas(palavra):
@@ -72,8 +71,6 @@ def imprime_previa_palavra_secreta(lista):
     print("Palavra SECRETA: ", lista)
 
 def imprime_mensagem_jogando(letras_acertadas, letras_erradas, erros):
-    # print('\n' * 100)
-    # os.system('cls')
     print("Letras erradas: {}".format(letras_erradas))
     print("Erros disponíveis: {}".format(erros))
     print("PALAVRA SECRETA: ", letras_acertadas)
