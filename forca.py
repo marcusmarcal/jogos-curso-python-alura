@@ -1,9 +1,8 @@
 ## Testando desenvolvimento Python orientado pelo curso da Alura!
 ## Marcus Marçal - marcus.marcal@gmail.com
-## >>> Dev <<< versão 0.1.1
+## >>> Master <<< versão 0.2.0
 
 import random
-#import os #se necessário para função cla, lipar tela...
 
 def jogar():
     mensagem_inicio() #Chama função da mensagem inicial do jogo
